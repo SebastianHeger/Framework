@@ -2,9 +2,8 @@
 
 ## Baseline
 - Vue 3
-- TypeScript
 - Vite
-- Vuex
+- Axios
 - Quasar
 - Router
 
