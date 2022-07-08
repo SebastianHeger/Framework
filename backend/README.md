@@ -1,7 +1,7 @@
 # Backend
 
 ## Baseline
-- FastAPI
+- Django
 - Linting with black
 - Docker support
 
