@@ -18,7 +18,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue'
 import { useAuthStore } from "../stores/auth"
 import AuthService from "../services/auth"
@@ -29,7 +29,7 @@ export default {
     
   },
   setup() {
-    const store = useAuthStore()
+    const authStore = useAuthStore()
     const authService = new AuthService
 
     const username = ref("")
