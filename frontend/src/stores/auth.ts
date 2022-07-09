@@ -1,13 +1,15 @@
 import { defineStore } from 'pinia'
+import { useLocalStorage } from '@vueuse/core'
+import User from '../data/user'
 
 export const useAuthStore = defineStore("auth", {
     state: () => {
-        return { user: "Tofi" }
+        return {user: "Tofi"}
     },
     actions: {
         async login() {
             this.user = "Testuser";
-            localStorage.setItem('user', JSON.stringify(this.user));
+            useLocalStorage("user", JSON.stringify(this.user))
         },
         logout() {
             this.user = "";
@@ -15,16 +17,3 @@ export const useAuthStore = defineStore("auth", {
         }
     }
 });
-
-
-
-    // actions: {
-    //     async login() {
-    //         this.user = "Testuser";
-    //         localStorage.setItem('user', JSON.stringify(this.user));
-    //     },
-    //     logout() {
-    //         this.user = "";
-    //         localStorage.removeItem('user');
-    //     }
-    // }

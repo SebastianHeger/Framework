@@ -4,16 +4,14 @@
         <q-space />
         <q-toolbar-title>Framework</q-toolbar-title>
         <q-space />
-        <q-btn flat icon="explore" label="About" :to="{ name: 'About'}"/>
-        <q-btn flat icon="explore" label="Login" :to="{ name: 'Login'}"/>
-        <!-- <q-btn flat icon="explore" :label="authStore.user" :to="{ name: 'Login'}"/> -->
+        <q-btn flat icon="explore" label="About" :to="{ name: 'About'}" />
+        <q-btn flat icon="explore" label="Login" :to="{ name: 'Login'}" />
+        <p>Logged in user is: {{ store.user }}</p>
     </q-toolbar>
 </template>
 
 <script>
-// import { useAuthStore } from '../stores'
-
-// const authStore = useAuthStore()
+import {useAuthStore} from "../stores/auth"
 
 export default {
     name: "Navbar", 
@@ -21,6 +19,9 @@ export default {
         
     },
     setup() {
+        const store = useAuthStore()
+
+        return {store}
     }
 }
 </script>

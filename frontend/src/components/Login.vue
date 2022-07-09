@@ -11,7 +11,7 @@
                     <q-input class="q-pa-sm" outlined v-model="password" label="Password" />
                 </q-card-section>
                 <q-card-actions class="justify-center">
-                    <q-btn push class="glossy q-ma-xs" color="primary" label="Login" />
+                    <q-btn push class="glossy q-ma-xs" color="primary" label="Login" @click="login"/>
                 </q-card-actions>
             </q-card>
         </div>
@@ -19,13 +19,33 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+import { useAuthStore } from "../stores/auth"
+import AuthService from "../services/auth"
+
 export default {
   name: "Login",
   components: {
     
   },
   setup() {
-       
+    const store = useAuthStore()
+    const authService = new AuthService
+
+    const username = ref("")
+    const password = ref("")
+    
+    function login() {
+        authService.login()
+        store.user = username
+        console.log(store.user)
+    }
+
+    return {
+        username, 
+        password,
+        login
+    }
   }
 } 
 </script>
