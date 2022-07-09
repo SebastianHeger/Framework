@@ -21,7 +21,6 @@
 <script lang="ts">
 import { ref } from 'vue'
 import { useAuthStore } from "../stores/auth"
-import AuthService from "../services/auth"
 
 export default {
   name: "Login",
@@ -30,15 +29,12 @@ export default {
   },
   setup() {
     const authStore = useAuthStore()
-    const authService = new AuthService
 
     const username = ref("")
     const password = ref("")
     
     function login() {
-        authService.login()
-        store.user = username
-        console.log(store.user)
+        authStore.login(username.value, password.value)
     }
 
     return {
