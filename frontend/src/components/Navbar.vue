@@ -6,10 +6,15 @@
         <q-space />
         <q-btn flat icon="explore" label="About" :to="{ name: 'About'}"/>
         <q-btn flat icon="explore" label="Login" :to="{ name: 'Login'}"/>
+        <!-- <q-btn flat icon="explore" :label="authStore.user" :to="{ name: 'Login'}"/> -->
     </q-toolbar>
 </template>
 
 <script>
+// import { useAuthStore } from '../stores'
+
+// const authStore = useAuthStore()
+
 export default {
     name: "Navbar", 
     components: {

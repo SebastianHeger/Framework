@@ -2,11 +2,15 @@
   <header class="q-header q-layout__section--marginal fixed-top q-header--bordered header text-dark">
     <Navbar />
   </header>
+  <p>Logged in user is: {{ store.user }}</p>
   <router-view />
 </template>
 
 <script setup>
   import Navbar from './components/Navbar.vue'
+  import {useAuthStore} from "./stores/auth"
+
+  const store = useAuthStore()
 </script>
 
 <style>
