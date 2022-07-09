@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  postgres:
+    container_name: framework-database
+    build: ./database
+    image: postgres
+    restart: on-failure
+    ports:
+      - "5432:5432"
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=framework
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+volumes:
+  database_data:
+    driver: local
