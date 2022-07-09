@@ -5,6 +5,7 @@
         <q-toolbar-title>Framework</q-toolbar-title>
         <q-space />
         <q-btn flat icon="explore" label="About" :to="{ name: 'About'}"/>
+        <q-btn flat icon="explore" label="Login" :to="{ name: 'Login'}"/>
     </q-toolbar>
 </template>
 
