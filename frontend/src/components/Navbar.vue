@@ -5,14 +5,14 @@
         <q-space />
         <q-toolbar-title>Framework</q-toolbar-title>
         <q-space />
-        <q-btn flat icon="login" label="Login" :to="{ name: 'Login'}" />
-        <q-btn flat icon="logout" label="Logout" @click="authStore.logout()" />
-        <q-btn flat icon="face" :label="authStore.user" />
+        <q-btn v-if="authStore.user==null" flat icon="login" label="Login" :to="{ name: 'Login'}" />
+        <q-btn v-if="authStore.user!=null" flat icon="logout" label="Logout" @click="authStore.logout()" />
+        <q-btn v-if="authStore.user!=null" flat icon="face" :label="authStore.user" />
     </q-toolbar>
 </template>
 
 <script lang="ts">
-import {useAuthStore} from "../stores/auth"
+import { useAuthStore } from "../stores/auth"
 
 export default {
     name: "Navbar", 
