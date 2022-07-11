@@ -8,7 +8,7 @@
                 <q-separator inset />
                 <q-card-section>
                     <q-input class="q-pa-sm" outlined v-model="username" label="Username" />
-                    <q-input class="q-pa-sm" outlined v-model="password" label="Password" />
+                    <q-input class="q-pa-sm" outlined v-model="password" label="Password" type="password" />
                 </q-card-section>
                 <q-card-actions class="justify-center">
                     <q-btn push class="glossy q-ma-xs" color="primary" label="Login" @click="login"/>
