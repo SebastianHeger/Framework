@@ -2,6 +2,7 @@
     <q-toolbar class="bg-primary glossy text-white">
         <q-btn flat icon="home" label="Home" :to="{ name: 'Home'}"/>
         <q-btn flat icon="explore" label="About" :to="{ name: 'About'}" />
+        <q-btn flat icon="explore" label="Hidden" :to="{ name: 'Hidden'}" />
         <q-space />
         <q-toolbar-title>Framework</q-toolbar-title>
         <q-space />
