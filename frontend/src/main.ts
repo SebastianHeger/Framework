@@ -18,7 +18,16 @@ app.use(Quasar, {
         Notify
     },
     config: {
-        notify: { /* look at QuasarConfOptions from the API card */ }
+        notify: { /* look at QuasarConfOptions from the API card */ },
+        brand: {
+            primary: '#212b59',
+            secondary: '#5f6a71',
+            accent: '#465dc2',
+            positive: '#21BA45',
+            negative: '#C10015',
+            info: '#31CCEC',
+            warning: '#F2C037'
+        }
     }
 })
 app.mount('#app');

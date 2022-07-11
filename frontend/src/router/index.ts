@@ -29,7 +29,7 @@ const routes = [
       } else {
         Notify.create({
           message: 'Sorry, access denied!',
-          color: 'red',
+          color: 'negative',
           actions: [
               { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
           ]

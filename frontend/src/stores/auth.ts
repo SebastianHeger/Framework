@@ -22,7 +22,7 @@ export const useAuthStore = defineStore("auth", {
                 useLocalStorage("token", JSON.stringify(this.token))
                 Notify.create({
                     message: 'Successfully logged in!',
-                    color: 'primary',
+                    color: 'positive',
                     actions: [
                         { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
                     ]
@@ -31,7 +31,7 @@ export const useAuthStore = defineStore("auth", {
             .catch((error) => {
                 Notify.create({
                     message: 'Log in failed. Username or password wrong.',
-                    color: 'red',
+                    color: 'negative',
                     actions: [
                         { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
                     ]
@@ -46,7 +46,7 @@ export const useAuthStore = defineStore("auth", {
             localStorage.removeItem('token')
             Notify.create({
                 message: 'Successfully logged out!',
-                color: 'primary',
+                color: 'positive',
                 actions: [
                     { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
                 ]
