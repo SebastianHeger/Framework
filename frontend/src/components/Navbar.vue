@@ -4,7 +4,7 @@
         <q-btn flat icon="explore" label="About" :to="{ name: 'About'}" />
         <q-btn flat icon="explore" label="Hidden" :to="{ name: 'Hidden'}" />
         <q-space />
-        <q-toolbar-title>Framework</q-toolbar-title>
+        <q-toolbar-title class="absolute-center">Framework</q-toolbar-title>
         <q-space />
         <q-btn v-if="authStore.user==null" flat icon="login" label="Login" :to="{ name: 'Login'}" />
         <q-btn v-if="authStore.user!=null" flat icon="logout" label="Logout" @click="authStore.logout()" />
