@@ -2,7 +2,6 @@
   <header class="q-header q-layout__section--marginal fixed-top q-header--bordered header text-dark">
     <Navbar />
   </header>
-
   <router-view />
 </template>
 

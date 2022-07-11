@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { useLocalStorage } from '@vueuse/core'
+import { Notify } from 'quasar'
 
 import AuthService from '../services/auth'
 const authService = new AuthService
@@ -13,27 +14,43 @@ export const useAuthStore = defineStore("auth", {
     },
     actions: {
         async login(username: string, password: string) {
-            console.log("Authstore: Login user", username)
             await authService.login(username, password)
             .then((data) => {
-                console.log(data["data"])
                 this.user = username
                 this.token = data["data"]["access"]
-                console.log(this.token)
                 useLocalStorage("user", JSON.stringify(this.user))
                 useLocalStorage("token", JSON.stringify(this.token))
+                Notify.create({
+                    message: 'Successfully logged in!',
+                    color: 'primary',
+                    actions: [
+                        { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
+                    ]
+                })
             })
             .catch((error) => {
-                console.log(error)
+                Notify.create({
+                    message: 'Log in failed. Username or password wrong.',
+                    color: 'red',
+                    actions: [
+                        { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
+                    ]
+                })
             })
         },
 
         logout() {
-            console.log("Authstore: Logout", this.user)
             this.user = null
             this.token = null
             localStorage.removeItem('user')
             localStorage.removeItem('token')
+            Notify.create({
+                message: 'Successfully logged out!',
+                color: 'primary',
+                actions: [
+                    { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
+                ]
+            })
         }
     }
 });
