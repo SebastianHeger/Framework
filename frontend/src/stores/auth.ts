@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { useLocalStorage } from '@vueuse/core'
 import { Notify } from 'quasar'
+import router from '../router'
 
 import AuthService from '../services/auth'
 const authService = new AuthService
@@ -20,6 +21,7 @@ export const useAuthStore = defineStore("auth", {
                 this.token = data["data"]["access"]
                 useLocalStorage("user", JSON.stringify(this.user))
                 useLocalStorage("token", JSON.stringify(this.token))
+                router.push({ name: 'Home'})
                 Notify.create({
                     message: 'Successfully logged in!',
                     color: 'positive',
@@ -44,6 +46,7 @@ export const useAuthStore = defineStore("auth", {
             this.token = null
             localStorage.removeItem('user')
             localStorage.removeItem('token')
+            router.push({ name: 'Home'})
             Notify.create({
                 message: 'Successfully logged out!',
                 color: 'positive',

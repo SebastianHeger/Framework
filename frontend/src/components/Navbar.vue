@@ -8,7 +8,7 @@
         <q-space />
         <q-btn v-if="authStore.user==null" flat icon="login" label="Login" :to="{ name: 'Login'}" />
         <q-btn v-if="authStore.user!=null" flat icon="logout" label="Logout" @click="authStore.logout()" />
-        <q-btn v-if="authStore.user!=null" flat icon="face" :label="authStore.user" />
+        <q-btn v-if="authStore.user!=null" flat icon="face" :label="authStore.user" :to="{ name: 'User'}" />
     </q-toolbar>
 </template>
 
