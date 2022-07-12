@@ -7,11 +7,7 @@ from django.contrib.auth.models import User
 from .serializers import UserSerializer, RegistrationSerializer
 
 
-@api_view(
-    [
-        "POST",
-    ]
-)
+@api_view(["POST"])
 def registration_view(request):
     if request.method == "POST":
         serializer = RegistrationSerializer(data=request.data)

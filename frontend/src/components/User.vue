@@ -9,6 +9,7 @@
                 <q-card-section>
                     <p v-if="userData !== null">Vorname: {{ userData.first_name }}</p>
                     <p v-if="userData !== null">Nachname: {{ userData.last_name }}</p>
+                    <p v-if="userData !== null">Letzter Login: {{ userData.email }}</p>
                     <p v-if="userData !== null">Letzter Login: {{ userData.last_login }}</p>
                 </q-card-section>
             </q-card>
@@ -17,8 +18,9 @@
 </template>
 
 <script lang="ts">
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 import { useAuthStore } from "../stores/auth"
+import UserService from "../services/user"
 
 export default {
     name: "User", 
@@ -26,9 +28,19 @@ export default {
     },
     setup() {
         const authStore = useAuthStore()
+        const userService = new UserService()
         const userData=ref(null)
-       
+
+        onMounted(() => {
+            userService.getUser(authStore.user)
+            .then((result) => {
+                userData.value = result["data"]
+            })
+            .catch((error) => console.log(error))
+        })
+
         return {authStore, userData}
     } 
+    
 }
 </script>

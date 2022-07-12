@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { Notify } from 'quasar'
+import { useAuthStore } from '../stores/auth'
 
 const api = axios.create({
     baseURL: "http://127.0.0.1:8000/api",
@@ -7,13 +9,23 @@ const api = axios.create({
 
 api.interceptors.request.use(
     config => {
-        let token = null
-        if (token !== null) {
-            config.headers.authorization = `Bearer ${token}`
+        const authStore = useAuthStore()
+        console.log(authStore.token)
+        if (authStore.token !== null) {
+            config.headers.authorization = `Bearer ${authStore.token}`
         }
         return config
     },
-    error => Promise.reject(error)
+    error => {
+        Promise.reject(error)
+        Notify.create({
+            message: 'Data cannot be received from the server.',
+            color: 'negative',
+            actions: [
+                { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
+            ]
+        })
+    }
 )
 
 export default api 
