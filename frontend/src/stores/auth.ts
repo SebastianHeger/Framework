@@ -10,7 +10,8 @@ export const useAuthStore = defineStore("auth", {
     state: () => {
         return {
             user: JSON.parse(localStorage.getItem('user')),
-            token: JSON.parse(localStorage.getItem('token'))
+            token: JSON.parse(localStorage.getItem('token')),
+            refreshToken: JSON.parse(localStorage.getItem('refreshToken'))
         }
     },
     actions: {
@@ -19,8 +20,10 @@ export const useAuthStore = defineStore("auth", {
             .then((data) => {
                 this.user = username
                 this.token = data["data"]["access"]
+                this.refreshToken = data["data"]["refresh"]
                 useLocalStorage("user", JSON.stringify(this.user))
                 useLocalStorage("token", JSON.stringify(this.token))
+                useLocalStorage("refreshToken", JSON.stringify(this.refreshToken))
                 router.push({ name: 'Home'})
                 Notify.create({
                     message: 'Successfully logged in!',
@@ -44,8 +47,10 @@ export const useAuthStore = defineStore("auth", {
         logout() {
             this.user = null
             this.token = null
+            this.refreshToken = null
             localStorage.removeItem('user')
             localStorage.removeItem('token')
+            localStorage.removeItem('refreshToken')
             router.push({ name: 'Home'})
             Notify.create({
                 message: 'Successfully logged out!',
