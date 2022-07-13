@@ -5,5 +5,10 @@ export default class AuthService {
     let data = {"username": username, "password": password}
     return api.post(`token/`, data)
   }
+
+  refresh(refreshToken: string) {
+    let data = {"refresh": refreshToken}
+    return api.post(`token/refresh/`, data)
+  }
 }
 

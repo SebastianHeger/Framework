@@ -44,6 +44,32 @@ export const useAuthStore = defineStore("auth", {
             })
         },
 
+        async refresh() {
+            if (this.refreshToken !== null) {
+                await authService.refresh(this.refreshToken)
+                .then((data) => {
+                    this.token = data["data"]["access"]
+                    useLocalStorage("token", JSON.stringify(this.token))
+                })
+                .catch((error) => {
+                    this.user = null
+                    this.token = null
+                    this.refreshToken = null
+                    localStorage.removeItem('user')
+                    localStorage.removeItem('token')
+                    localStorage.removeItem('refreshToken')
+                    router.push({ name: 'Login'})
+                    Notify.create({
+                        message: 'Refresh token expired!',
+                        color: 'negative',
+                        actions: [
+                            { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
+                        ]
+                    })
+                })
+            }
+        },
+
         logout() {
             this.user = null
             this.token = null

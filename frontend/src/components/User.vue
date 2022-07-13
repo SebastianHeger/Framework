@@ -36,7 +36,9 @@ export default {
             .then((result) => {
                 userData.value = result["data"]
             })
-            .catch((error) => console.log(error))
+            .catch((error) => {
+                console.log(error)
+            })
         })
 
         return {authStore, userData}
