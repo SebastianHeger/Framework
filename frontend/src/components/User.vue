@@ -9,7 +9,7 @@
                 <q-card-section>
                     <p v-if="userData !== null">Vorname: {{ userData.first_name }}</p>
                     <p v-if="userData !== null">Nachname: {{ userData.last_name }}</p>
-                    <p v-if="userData !== null">Letzter Login: {{ userData.email }}</p>
+                    <p v-if="userData !== null">E-Mail: {{ userData.email }}</p>
                     <p v-if="userData !== null">Letzter Login: {{ userData.last_login }}</p>
                 </q-card-section>
             </q-card>
