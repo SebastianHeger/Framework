@@ -19,7 +19,7 @@
 
 <script>
 export default {
-    name: "Hidden", 
+    name: "Limited", 
     components: {
     },
     setup() {

@@ -3,8 +3,8 @@
     <q-btn stretch flat icon="settings_suggest" :to="{ name: 'About' }">
       <div class="text-h6 text-capitalize q-pl-sm">About</div>
     </q-btn>
-    <q-btn stretch flat icon="auto_stories" :to="{ name: 'Hidden' }">
-      <div class="text-h6 text-capitalize q-pl-sm">Hidden</div>
+    <q-btn stretch flat icon="auto_stories" :to="{ name: 'Limited' }">
+      <div class="text-h6 text-capitalize q-pl-sm">Limited</div>
     </q-btn>
 
     <q-space />

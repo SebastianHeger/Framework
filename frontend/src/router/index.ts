@@ -5,7 +5,7 @@ import { Notify } from 'quasar'
 import Home from "../components/Home.vue"
 import About from "../components/About.vue"
 import Login from "../components/Login.vue"
-import Hidden from "../components/Hidden.vue"
+import Limited from "../components/Limited.vue"
 import User from "../components/User.vue"
 import Register from "../components/Register.vue"
 
@@ -21,9 +21,9 @@ const routes = [
     component: About,
   },
   {
-    path: "/hidden",
-    name: "Hidden",
-    component: Hidden,
+    path: "/limited",
+    name: "Limited",
+    component: Limited,
     beforeEnter: (to, from, next) => {
       const authStore = useAuthStore()
       if(authStore.user!==null) {
