@@ -1,30 +1,65 @@
 <template>
-    <q-toolbar class="bg-primary glossy text-white">
-        <q-btn flat icon="home" label="Home" :to="{ name: 'Home'}"/>
-        <q-btn flat icon="explore" label="About" :to="{ name: 'About'}" />
-        <q-btn flat icon="explore" label="Hidden" :to="{ name: 'Hidden'}" />
-        <q-space />
-        <q-toolbar-title class="absolute-center">Framework</q-toolbar-title>
-        <q-space />
-        <q-btn v-if="authStore.user==null" flat icon="badge" label="Register" :to="{ name: 'Register'}" />
-        <q-btn v-if="authStore.user==null" flat icon="login" label="Login" :to="{ name: 'Login'}" />
-        <q-btn v-if="authStore.user!=null" flat icon="face" :label="authStore.user" :to="{ name: 'User'}" />
-        <q-btn v-if="authStore.user!=null" flat icon="logout" label="Logout" @click="authStore.logout()" />
-    </q-toolbar>
+  <q-toolbar class="bg-primary glossy text-white">
+    <q-btn stretch flat icon="settings_suggest" :to="{ name: 'About' }">
+      <div class="text-h6 text-capitalize q-pl-sm">About</div>
+    </q-btn>
+    <q-btn stretch flat icon="auto_stories" :to="{ name: 'Hidden' }">
+      <div class="text-h6 text-capitalize q-pl-sm">Hidden</div>
+    </q-btn>
+
+    <q-space />
+
+    <q-btn class="absolute-center" stretch flat :to="{ name: 'Home' }">
+      <div class="text-h5 text-capitalize">Framework</div>
+    </q-btn>
+
+    <q-space />
+
+    <q-btn
+      v-if="authStore.user == null"
+      stretch
+      flat
+      icon="badge"
+      :to="{ name: 'Register' }"
+      ><div class="text-h6 text-capitalize q-pl-sm">Register</div>
+    </q-btn>
+    <q-btn
+      v-if="authStore.user == null"
+      stretch
+      flat
+      icon="login"
+      :to="{ name: 'Login' }"
+      ><div class="text-h6 text-capitalize q-pl-sm">Login</div>
+    </q-btn>
+    <q-btn
+      v-if="authStore.user != null"
+      stretch
+      flat
+      icon="face"
+      :to="{ name: 'User' }"
+      ><div class="text-h6 text-capitalize q-pl-sm">{{ authStore.user }}</div>
+    </q-btn>
+    <q-btn
+      v-if="authStore.user != null"
+      stretch
+      flat
+      icon="logout"
+      @click="authStore.logout()"
+      ><div class="text-h6 text-capitalize q-pl-sm">Logout</div>
+    </q-btn>
+  </q-toolbar>
 </template>
 
 <script lang="ts">
-import { useAuthStore } from "../stores/auth"
+import { useAuthStore } from "../stores/auth";
 
 export default {
-    name: "Navbar", 
-    components: {
-        
-    },
-    setup() {
-        const authStore = useAuthStore()
+  name: "Navbar",
+  components: {},
+  setup() {
+    const authStore = useAuthStore();
 
-        return {authStore}
-    }
-}
+    return { authStore };
+  },
+};
 </script>
