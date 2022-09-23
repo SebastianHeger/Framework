@@ -65,4 +65,15 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach(async (to, from) => {
+  const authStore = useAuthStore()
+  if (to.name === 'Login') {
+    return
+  } else if (authStore.user!==null) {
+    return
+  } else {
+    return { name: 'Login' }
+  }
+})
+
 export default router
