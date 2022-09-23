@@ -20,9 +20,9 @@ app.use(Quasar, {
     config: {
         notify: { /* look at QuasarConfOptions from the API card */ },
         brand: {
-            primary: '#212b59',
-            secondary: '#5f6a71',
-            accent: '#E5EDF1',
+            primary: '#27187E',
+            secondary: '#86BBD8',
+            accent: '#9EE493',
             positive: '#21BA45',
             negative: '#C10015',
             info: '#31CCEC',

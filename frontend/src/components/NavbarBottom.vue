@@ -1,5 +1,5 @@
 <template>
-  <q-toolbar class="bg-secondary glossy text-white">
+  <q-toolbar class="bg-secondary glossy text-black">
     <q-space />
     <q-btn
       flat
