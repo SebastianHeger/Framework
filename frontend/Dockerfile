@@ -1,12 +1,11 @@
-FROM node:15.12.0
+FROM node:18-alpine
 
 WORKDIR /app
 
-ADD . .
+COPY . .
 
-RUN npm install
-RUN npm rebuild esbuild
+RUN yarn install
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "run", "dev", "--mode","staging", "--host", "0.0.0.0"]
