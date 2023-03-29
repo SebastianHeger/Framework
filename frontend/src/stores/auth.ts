@@ -9,9 +9,9 @@ const authService = new AuthService
 export const useAuthStore = defineStore("auth", {
     state: () => {
         return {
-            user: JSON.parse(localStorage.getItem('user')),
-            token: JSON.parse(localStorage.getItem('token')),
-            refreshToken: JSON.parse(localStorage.getItem('refreshToken'))
+            user: JSON.parse(localStorage.getItem('user') || "{}"),
+            token: JSON.parse(localStorage.getItem('token') || "{}"),
+            refreshToken: JSON.parse(localStorage.getItem('refreshToken') || "{}")
         }
     },
     actions: {

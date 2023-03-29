@@ -1,5 +1,4 @@
 import api from '../plugins/axios-api'
-import apiUnauthorized from '../plugins/axios-api-unauth'
 
 export default class AuthService {
   login(username: string, password: string) {
@@ -14,6 +13,6 @@ export default class AuthService {
 
   register(username: string, password: string, email: string) {
     let data = {"username": username, "password": password, "email": email}
-    return apiUnauthorized.post(`register/`, data)
+    return api.post(`register/`, data)
   }
 }
