@@ -3,23 +3,23 @@
     <div class="col-xs-12 col-sm-8 col-md-6">
       <q-card class="q-ma-md">
         <q-card-section>
-          <div class="text-h4">Hallo {{ authStore.user }}</div>
+          <div class="text-h4">Hello {{ authStore.user }}</div>
         </q-card-section>
         <q-separator inset />
         <q-card-section>
-          <p v-if="userData !== null">Vorname: {{ userData?.first_name }}</p>
-          <p v-if="userData !== null">Nachname: {{ userData?.last_name }}</p>
-          <p v-if="userData !== null">Benutzername: {{ userData?.username }}</p>
+          <p v-if="userData !== null">First name: {{ userData?.first_name }}</p>
+          <p v-if="userData !== null">Last name: {{ userData?.last_name }}</p>
+          <p v-if="userData !== null">Username: {{ userData?.username }}</p>
           <p v-if="userData !== null">E-Mail: {{ userData?.email }}</p>
           <p v-if="userData !== null">
-            Letzter Login: {{ userData?.last_login }}
+            Last login: {{ userData?.last_login }}
           </p>
 
           <q-btn
             push
             class="glossy q-ma-xs"
             color="primary"
-            label="Passwort ändern"
+            label="Change password"
             no-caps
             @click="showChangePasswordDialog = true"
           />
