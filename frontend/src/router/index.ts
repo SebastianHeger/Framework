@@ -24,21 +24,21 @@ const routes = [
     path: "/limited",
     name: "Limited",
     component: Limited,
-    beforeEnter: (to, from, next) => {
-      const authStore = useAuthStore()
-      if(authStore.user!==null) {
-        next()
-      } else {
-        Notify.create({
-          message: 'Sorry, access denied!',
-          color: 'negative',
-          actions: [
-              { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
-          ]
-      })
-        next({ name: 'Home' }) 
-      }
-    },
+    // beforeEnter: (to, from, next) => {
+    //   const authStore = useAuthStore()
+    //   if(authStore.user!==null) {
+    //     next()
+    //   } else {
+    //     Notify.create({
+    //       message: 'Sorry, access denied!',
+    //       color: 'negative',
+    //       actions: [
+    //           { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
+    //       ]
+    //   })
+    //     next({ name: 'Home' }) 
+    //   }
+    // },
   },
   {
     path: "/login",
@@ -65,7 +65,7 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to, _) => {
   const authStore = useAuthStore()
   if (to.name === 'Login') {
     return
