@@ -19,10 +19,5 @@
   </q-toolbar>
 </template>
 
-<script lang="ts">
-export default {
-  name: "NavbarBottom",
-  components: {},
-  setup() {},
-};
+<script lang="ts" setup>
 </script>

@@ -50,16 +50,8 @@
   </q-toolbar>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { useAuthStore } from "../stores/auth";
 
-export default {
-  name: "Navbar",
-  components: {},
-  setup() {
-    const authStore = useAuthStore();
-
-    return { authStore };
-  },
-};
+const authStore = useAuthStore();
 </script>
